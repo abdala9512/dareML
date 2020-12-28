@@ -1,0 +1,4 @@
+getIris <-
+function(){
+  irisDF <<- iris
+}
