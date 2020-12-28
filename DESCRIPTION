@@ -1,16 +1,20 @@
 Package: dareML
-Title: What the Package Does (One Line, Title Case)
+Title: Data repository for Machine learning
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Miguel",
+           family = "Arquez",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "miguel.arquez12@gmail.com")
+Description: Library for easily obtain clean and real datasets for machine learning projects or practive, suitable for differente types of algorithms.
+Depends:
+    R (>= 3.0.0)
 License: `use_mit_license()`, `use_gpl3_license()` or friends to
     pick a license
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Imports: jsonlite,
+    writexl
+VigneteeBuilder: knitr
