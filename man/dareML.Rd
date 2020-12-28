@@ -4,9 +4,11 @@
 \name{dareML}
 \alias{dareML}
 \alias{dareML-package}
-\title{dareML: Library for easily obtain clean and real datasets for machine learning projects or practive, suitable for differente types of algorithms.}
+\title{dareML: DAta REpository for Machine Learning}
 \description{
-Library for easily obtain clean and real datasets for machine learning projects or practive, suitable for differente types of algorithms.
+@description  Library for easily obtain clean and real datasets
+for machine learning projects or practice, suitable
+for differente types of algorithms.
 }
 \author{
 Miguel Arquez \email{miguel.arquez12@gmail.com}
