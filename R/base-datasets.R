@@ -1,3 +1,6 @@
+
+# Iris dataset ------------------------------------------------------------
+
 #' Call iris dataset
 #'
 #' Ideal dataset for clustering, multi-class
@@ -40,3 +43,38 @@ function(){
   irisDF <<- iris
   cat("Classic Iris dataset loaded.")
 }
+
+
+# Housing dataset ---------------------------------------------------------
+
+
+#' Retrieve Housing dataset
+#'
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
+getHousingDataSet <-
+function(...){
+  housing <- read.csv("https://raw.githubusercontent.com/ageron/handson-ml/master/datasets/housing/housing.csv", ...)
+  cat("Housing dataset imported")
+  return(housing)
+}
+
+
+#' Housing dataset loaded in current environment
+#'
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
+loadHousingDataSet <-
+function(...){
+  housing <<- read.csv("https://raw.githubusercontent.com/ageron/handson-ml/master/datasets/housing/housing.csv", ...)
+  cat("Housing dataset imported")
+}
+
