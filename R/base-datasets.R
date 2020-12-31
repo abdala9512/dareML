@@ -1,4 +1,3 @@
-
 # Iris dataset ------------------------------------------------------------
 
 #' Call iris dataset
@@ -24,6 +23,7 @@ getIris <-
 function(){
   irisDF <- iris
   cat("Classic Iris dataset imported.")
+  calculateSize(irisDF)
   return(irisDF)
 }
 
@@ -76,5 +76,40 @@ loadHousingDataSet <-
 function(...){
   housing <<- read.csv("https://raw.githubusercontent.com/ageron/handson-ml/master/datasets/housing/housing.csv", ...)
   cat("Housing dataset imported")
+}
+
+
+
+#' Title
+#'
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
+getMNIST <-
+function(...){
+  msnist <- read.csv("https://datahub.io/machine-learning/mnist_784/r/mnist_784.csv")
+  cat("MSNIST dataset imported")
+  return(mnist)
+}
+
+
+
+
+#' Title
+#'
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
+loadMSNIST <-
+function(...){
+  mnist <<- read.csv("https://datahub.io/machine-learning/mnist_784/r/mnist_784.csv")
+  cat("MNIST Dataset loaded")
+  calculateSize(mnist)
 }
 
