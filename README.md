@@ -12,4 +12,4 @@ library(dareML)
 
 ## Current Sources
 
-[DataHub](https://datahub.io/)
+* [DataHub.io](https://datahub.io/)
