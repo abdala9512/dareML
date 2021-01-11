@@ -14,3 +14,4 @@ library(dareML)
 
 * [DataHub.io](https://datahub.io/)
 * [WorldBank](https://databank.worldbank.org/home.aspx)
+* [Kaggle](https://www.kaggle.com/)
