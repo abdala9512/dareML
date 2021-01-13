@@ -17,3 +17,7 @@ library(dareML)
 * [Kaggle](https://www.kaggle.com/)
 * [UCI machine learning repository](https://archive.ics.uci.edu/ml/index.php)
 * [imageNet](http://www.image-net.org/)
+
+
+# Contact
+You can contribute or send me an email to miguel.arquez12@gmail.com :)
