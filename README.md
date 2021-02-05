@@ -1,5 +1,5 @@
 # dareML
-Data Repository for Machine Learning.
+Data Repository for practive with classic Machine Learning algorithms and deep learning models.
 
 Library for easily obtain clean and real datasets for machine learning projects or practice, suitable for differente types of algorithms.
 
