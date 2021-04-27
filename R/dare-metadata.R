@@ -7,6 +7,8 @@ function(){
   message("* Datahub.io ")
   message("* World bank")
   message("* Kaggle ")
+  message("* Quandl ")
+  message("* UCI Machine Learning Repository ")
 
   message("--------------------------------------")
 }
