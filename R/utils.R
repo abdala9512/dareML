@@ -32,3 +32,30 @@ getCryptoData <- function(API_KEY){
 
 }
 
+
+
+# Quandl ------------------------------------------------------------------
+
+
+#' getQuandlStockData
+#'
+#' @param stock
+#' @param database
+#'
+#' @return
+#' @export
+#'
+#' @examples
+getQuandlStockData  <- function(stock, database="WIKI"){
+
+  url = sprintf("https://www.quandl.com/api/v3/datasets/%s/%s.json",database, stock )
+  apiData <- fromJSON(url)
+
+  message(sprintf("Loading data from %s", url))
+
+  stockData <- apiData$dataset$data %>% data.frame()
+  names(stockData) <- apiData$dataset$column_names
+
+  return(stockData)
+
+}
