@@ -44,7 +44,7 @@ function(...){
 #' @export
 #'
 #' @examples
-downloadStockData <- function(stock, database='WIKI', format = c("csv", "rds")){
+downloadStockData <- function(stock, database='WIKI', format = c("csv", "rds", "xlsx")){
 
   data <- getQuandlStockData(stock, database)
   format <- match.arg(format)

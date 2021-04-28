@@ -1,31 +1,79 @@
 library(httr)
 library(tidyr)
+library(writexl)
 library(jsonlite)
 
 
 # General utils -----------------------------------------------------------
 
+'%!in%' <<- Negate('%in%')
 
+#' Title
+#'
+#' @param obj
+#'
+#' @return
+#' @export
+#'
+#' @examples
 calculateSize <-
 function(obj){
   sprintf("Total size %s Mb", object.size(obj) / 1000000)
 }
 
 
-downloadData <- function(data, format, filename, path=getwd()){
+#' Title
+#'
+#' @param data
+#' @param format
+#' @param filename
+#' @param path
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
+downloadData <- function(data, format, filename, path=getwd(), ...){
 
+  if (format %!in% c("csv", "rds", "xlsx")) {
+    stop("Invalid Format file. Try with 'csv', 'rds' or 'xlsx'")
+
+  }
   fullPath = paste(file.path(path, filename),".", format, sep="")
 
   switch (format,
     "csv"  = write.csv(data, file = fullPath),
-    "rds"  = saveRDS(data, file = fullPath)
+    "rds"  = saveRDS(data, file = fullPath),
+    "xlsx" = write_xlsx(data, path = fullPath)
   )
 
+}
+
+#' Title
+#'
+#' @param data
+#' @param varname
+#'
+#' @return
+#' @export
+#'
+#' @examples
+loadDatainEnvironment <- function(data, varname){
+  assign(varname, data)
 }
 
 
 # Coin Market Cap - API  --------------------------------------------------
 
+#' Title
+#'
+#' @param API_KEY
+#'
+#' @return
+#' @export
+#'
+#' @examples
 getCryptoData <- function(API_KEY){
 
   # https://towardsdatascience.com/top-5-best-cryptocurrency-apis-for-developers-32475d2eb749
