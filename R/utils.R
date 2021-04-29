@@ -1,4 +1,6 @@
 library(httr)
+library(dplyr)
+library(magrittr)
 library(tidyr)
 library(writexl)
 library(jsonlite)
@@ -38,8 +40,8 @@ downloadData <- function(data, format, filename, path=getwd(), ...){
 
   if (format %!in% c("csv", "rds", "xlsx")) {
     stop("Invalid Format file. Try with 'csv', 'rds' or 'xlsx'")
-
   }
+
   fullPath = paste(file.path(path, filename),".", format, sep="")
 
   switch (format,
@@ -59,8 +61,8 @@ downloadData <- function(data, format, filename, path=getwd(), ...){
 #' @export
 #'
 #' @examples
-loadDatainEnvironment <- function(data, varname){
-  assign(varname, data)
+loadDatainEnvironment <- function(data, varname, ...){
+  assign(varname, data, ...)
 }
 
 

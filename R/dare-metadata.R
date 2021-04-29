@@ -2,7 +2,7 @@
 dataSources <-
 function(){
   message("--------------------------------------")
-  message("Current Data Sources - dateML library")
+  message("Current Data Sources - dareML library")
   message("--------------------------------------")
   message("* Datahub.io ")
   message("* World bank")
