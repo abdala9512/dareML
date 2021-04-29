@@ -44,7 +44,7 @@ loadAutoMPG <- function(mode=c("load", "download"), ...){
   names(autoMPG) <- columnNames
 
   switch (mode,
-    "load"     = loadDatainEnvironment(data = autoMPG, varname = "autoMPG"),
+    "load"     = loadDatainEnvironment(data = autoMPG, varname = "autoMPG", envir = parent.frame()),
     "download" = downloadData(autoMPG, filename ="autoMPG", ...)
   )
 }
