@@ -4,6 +4,7 @@ library(magrittr)
 library(tidyr)
 library(writexl)
 library(jsonlite)
+library(stringr)
 
 
 # General utils -----------------------------------------------------------

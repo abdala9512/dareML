@@ -15,7 +15,8 @@ uciCatalog <- function(){
   message("|-----------------------------------------|")
   message("|  Gender by Name   |   Classification    |")
   message("|-----------------------------------------|")
-
+  message("|   Air Quality     |   Regression - TS   |")
+  message("|-----------------------------------------|")
 }
 
 #' load or download Auto mpg dataset
@@ -72,4 +73,42 @@ loadGenderByName <- function(mode=c("load", "download"), ...){
          "download" = downloadData(genderBN, filename ="genderBN", ...)
  )
 }
+
+
+
+#' airQuality time series dataset
+#'
+#' @param mode
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
+loadAirQuality <- function(mode=c("load", "download"), ...){
+
+  mode <- match.arg(mode)
+
+  message("Dataset information at https://archive.ics.uci.edu/ml/datasets/Air+Quality")
+
+  tempf <- tempfile()
+  download.file("https://archive.ics.uci.edu/ml/machine-learning-databases/00360/AirQualityUCI.zip", tempf)
+  airQuality <- read.csv(unz(tempf, "AirQualityUCI.csv"), sep =";")
+  unlink(tempf)
+
+
+   airQuality %<>%   select(-c(X, `X.1`)) %>%
+    mutate(`CO.GT.`  = as.numeric(str_replace(`CO.GT.`, ",", ".")),
+           `C6H6.GT.` = as.numeric(str_replace(`C6H6.GT.`, ",", ".")),
+           `T` = as.numeric(str_replace(`T`, ",", ".")),
+           RH = as.numeric(str_replace(RH, ",", ".")),
+           AH = as.numeric(str_replace(AH, ",", "."))
+    )
+
+   switch (mode,
+           "load"     = loadDatainEnvironment(data = airQuality, varname = "airQuality", envir = parent.frame()),
+           "download" = downloadData(airQuality, filename ="airQuality", ...)
+   )
+}
+
 

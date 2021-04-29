@@ -4,7 +4,7 @@
 \alias{loadDatainEnvironment}
 \title{Title}
 \usage{
-loadDatainEnvironment(data, varname)
+loadDatainEnvironment(data, varname, ...)
 }
 \arguments{
 \item{varname}{}
