@@ -67,6 +67,24 @@ loadDatainEnvironment <- function(data, varname, ...){
 }
 
 
+unZipDownload <- function(path, file, format = c("csv", "data"), ...){
+
+
+  tempf <- tempfile()
+  download.file(path, tempf)
+
+  if(format == "csv"){
+    data_ <- read.csv(unz(tempf,  paste(file, ".csv", sep= "")), ...)
+  } else  {
+    data_ <- read.table(unz(tempf,  paste(file, ".", format, sep = "")), ...)
+  }
+
+  unlink(tempf)
+
+  return(data_)
+
+}
+
 # Coin Market Cap - API  --------------------------------------------------
 
 #' Title

@@ -17,6 +17,8 @@ uciCatalog <- function(){
   message("|-----------------------------------------|")
   message("|   Air Quality     |   Regression - TS   |")
   message("|-----------------------------------------|")
+  message("|  Dow Jones Index  |         TS          |")
+  message("|-----------------------------------------|")
 }
 
 #' load or download Auto mpg dataset
@@ -91,13 +93,13 @@ loadAirQuality <- function(mode=c("load", "download"), ...){
 
   message("Dataset information at https://archive.ics.uci.edu/ml/datasets/Air+Quality")
 
-  tempf <- tempfile()
-  download.file("https://archive.ics.uci.edu/ml/machine-learning-databases/00360/AirQualityUCI.zip", tempf)
-  airQuality <- read.csv(unz(tempf, "AirQualityUCI.csv"), sep =";")
-  unlink(tempf)
 
+  airQuality <- unZipDownload(path = "https://archive.ics.uci.edu/ml/machine-learning-databases/00360/AirQualityUCI.zip",
+                              file = "AirQualityUCI",
+                              format = "csv",
+                              sep = ";")
 
-   airQuality %<>%   select(-c(X, `X.1`)) %>%
+  airQuality %<>%   select(-c(X, `X.1`)) %>%
     mutate(`CO.GT.`  = as.numeric(str_replace(`CO.GT.`, ",", ".")),
            `C6H6.GT.` = as.numeric(str_replace(`C6H6.GT.`, ",", ".")),
            `T` = as.numeric(str_replace(`T`, ",", ".")),
@@ -111,4 +113,39 @@ loadAirQuality <- function(mode=c("load", "download"), ...){
    )
 }
 
+
+
+#' dowJones index Time Series Dataset
+#'
+#' @param mode
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
+loadDowJonesIndex <- function(mode=c("load", "download"), ...){
+
+  mode <- match.arg(mode)
+
+  message("Dataset information at https://archive.ics.uci.edu/ml/datasets/Dow+Jones+Index")
+
+
+  dowJones <- unZipDownload(path = "https://archive.ics.uci.edu/ml/machine-learning-databases/00312/dow_jones_index.zip",
+                            file = "dow_jones_index",
+                            format = "data",
+                            sep = ",",
+                            header = T)
+
+  priceCols <- c("open", "high", "low", "close",
+                 "next_weeks_open", "next_weeks_close")
+
+  dowJones[priceCols] <- lapply(dowJones[priceCols], function(x) as.numeric(sub( ".", "", x)))
+
+  switch (mode,
+          "load"     = loadDatainEnvironment(data = dowJones, varname = "dowJones", envir = parent.frame()),
+          "download" = downloadData(dowJones, filename ="dowJones", ...)
+  )
+
+}
 
