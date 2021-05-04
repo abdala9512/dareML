@@ -11,6 +11,36 @@ devtools::install_github("abdala9512/dareML")
 library(dareML)
 ```
 
+
+## Examples
+
+Explore Catalog (Each source has its own catalog)
+
+```r
+<sourceName>Catalog()
+
+#example
+quandlCatalog()
+```
+
+loading data in Current R environemnt
+
+```r
+load<DataSetNameinCatalog>(mode ="load")
+
+# example - "load" is the default mode
+loadVIX()
+```
+
+Download data in Current working directory
+
+```r
+load<DataSetNameinCatalog>(mode ="download", format = c("csv", "xlsx", "rds"))
+
+# example
+loadVIX(mode ="download", format = "csv")
+```
+
 ## Current Sources
 
 * [DataHub.io](https://datahub.io/)
