@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{calculateSize}
 \alias{calculateSize}
-\title{Title}
+\title{Return Object size in megabytes}
 \usage{
 calculateSize(obj)
 }
@@ -13,5 +13,5 @@ calculateSize(obj)
 
 }
 \description{
-Title
+Return Object size in megabytes
 }

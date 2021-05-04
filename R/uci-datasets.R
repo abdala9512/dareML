@@ -19,6 +19,8 @@ uciCatalog <- function(){
   message("|-----------------------------------------|")
   message("|  Dow Jones Index  |         TS          |")
   message("|-----------------------------------------|")
+  message("|   Bike Sharing    |     Regression      |")
+  message("|-----------------------------------------|")
 }
 
 #' load or download Auto mpg dataset
@@ -160,10 +162,32 @@ loadDowJonesIndex <- function(mode=c("load", "download"), ...){
 #' @examples
 loadBikeSharing <- function(mode=c("load", "download"), ...){
 
+  files <- c("day", "hour")
+
+  # https://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset
   mode <- match.arg(mode)
 
   message("Dataset information at https://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset")
 
+  for (i in seq_along(files)) {
+
+    dataset <- unZipDownload(path = "https://archive.ics.uci.edu/ml/machine-learning-databases/00275/Bike-Sharing-Dataset.zip",
+                              file = files[i],
+                              format = "csv",
+                              sep = ",",
+                              header = T)
+
+    dataName <- paste("bikeSharing", files[i], sep="")
+
+    switch (mode,
+            "load"     = loadDatainEnvironment(data = dataset, varname = dataName, envir = parent.frame()),
+            "download" = {
+
+              downloadData(dataset, filename = paste(dataName,".csv"), ...)
+              message(paste("Downloaded", dataName))
+            }
+    )
+  }
 
 
 }

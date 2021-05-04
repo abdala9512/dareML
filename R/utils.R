@@ -11,7 +11,7 @@ library(stringr)
 
 '%!in%' <<- Negate('%in%')
 
-#' Title
+#' Return Object size in megabytes
 #'
 #' @param obj
 #'
