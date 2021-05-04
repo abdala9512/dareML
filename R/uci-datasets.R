@@ -149,3 +149,22 @@ loadDowJonesIndex <- function(mode=c("load", "download"), ...){
 
 }
 
+#' load Bike Sharing data
+#'
+#' @param mode
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
+loadBikeSharing <- function(mode=c("load", "download"), ...){
+
+  mode <- match.arg(mode)
+
+  message("Dataset information at https://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset")
+
+
+
+}
+
