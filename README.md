@@ -19,14 +19,17 @@ Explore Catalog (Each source has its own catalog)
 ```r
 <sourceName>Catalog()
 
-# example load is the default mode
-loadVIX()
+#example
+quandlCatalog()
 ```
 
 loading data in Current R environemnt
 
 ```r
 load<DataSetNameinCatalog>(mode ="load")
+
+# example - "load" is the default mode
+loadVIX()
 ```
 
 Download data in Current working directory
