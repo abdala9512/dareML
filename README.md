@@ -43,6 +43,11 @@ loadVIX(mode ="download", format = "csv")
 
 ## Current Sources
 
+```r
+# show data repositories currently working on dareML
+dataSources()
+```
+
 * [DataHub.io](https://datahub.io/)
 * [WorldBank](https://databank.worldbank.org/home.aspx)
 * [Kaggle](https://www.kaggle.com/)
