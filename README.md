@@ -11,6 +11,19 @@ devtools::install_github("abdala9512/dareML")
 library(dareML)
 ```
 
+## Current Sources
+
+```r
+# show data repositories currently working on dareML
+dataSources()
+```
+
+* [DataHub.io](https://datahub.io/)
+* [WorldBank](https://databank.worldbank.org/home.aspx)
+* [Kaggle](https://www.kaggle.com/)
+* [UCI machine learning repository](https://archive.ics.uci.edu/ml/index.php)
+* [Quandl](https://www.quandl.com/tools/api)
+
 
 ## Examples
 
@@ -40,19 +53,6 @@ load<DataSetNameinCatalog>(mode ="download", format = c("csv", "xlsx", "rds"))
 # example
 loadVIX(mode ="download", format = "csv")
 ```
-
-## Current Sources
-
-```r
-# show data repositories currently working on dareML
-dataSources()
-```
-
-* [DataHub.io](https://datahub.io/)
-* [WorldBank](https://databank.worldbank.org/home.aspx)
-* [Kaggle](https://www.kaggle.com/)
-* [UCI machine learning repository](https://archive.ics.uci.edu/ml/index.php)
-* [Quandl](https://www.quandl.com/tools/api)
 
 
 # Contact
