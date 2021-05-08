@@ -2,7 +2,7 @@
 
 Data Repository for practice with classic Machine Learning algorithms and deep learning models. This repository centralizes, cleans and makes available data sets of different types of tasks (regression, classification, clustering, time series, recommendation systems, etc.) for statistical analysis and the practice of machine learning.
 
-Library for easily obtain simple and real datasets for machine learning projects,practice or study suitable for differente types of algorithms.
+Useful to easily obtain simple and real datasets for machine learning projects,practice or study suitable for differente types of algorithms.
 
 ## Library Installation
 
