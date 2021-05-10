@@ -25,7 +25,7 @@ dataSources()
 * [Quandl](https://www.quandl.com/tools/api)
 
 
-## Examples
+## load/download data Examples
 
 Explore Catalog (Each source has its own catalog)
 
