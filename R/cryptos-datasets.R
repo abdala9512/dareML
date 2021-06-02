@@ -1,5 +1,6 @@
 #
 
+gecko_base_url <- function() {"https://api.coingecko.com/api/v3"}
 
 #' getBitcoin data function
 #'
@@ -10,5 +11,6 @@
 #'
 #' @examples
 getBitcoin <- function(...){
-
+  currentPrice <- fromJSON(paste0(gecko_base_url(), "/simple/price?ids=bitcoin&vs_currencies=usd"))
+  return(currentPrice$bitcoin$usd)
 }
