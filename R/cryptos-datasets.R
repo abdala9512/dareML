@@ -1,6 +1,6 @@
 #
 
-gecko__api_base_url <- function() {"https://api.coingecko.com/api/v3"}
+gecko_api_base_url <- function() {"https://api.coingecko.com/api/v3"}
 
 #' getBitcoin data function
 #'
